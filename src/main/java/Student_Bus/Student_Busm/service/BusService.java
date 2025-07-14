@@ -147,6 +147,11 @@ public class BusService {
     }
 
 
+    public Direction getBusDirection(String name) {
+        Bus bus = (Bus) busRepository.findById(name)
+                .orElseThrow(() -> new RuntimeException("Bus not found: " + name));
+        return bus.getDirection();
+    }
 
 
 

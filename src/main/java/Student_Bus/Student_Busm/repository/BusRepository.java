@@ -17,7 +17,7 @@ public interface BusRepository extends JpaRepository<Bus, String> {
 
     // Custom query to get buses by admin ID if needed
     List<Bus> findByAdminAdminId(String adminId);  // Get all buses assigned to an admin
-    //Optional<Bus> findByName(String name);
-    //List<Bus> findByLocation(BusStopage location);
+
+
 
 }

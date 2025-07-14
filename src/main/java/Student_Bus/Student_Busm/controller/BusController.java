@@ -1,9 +1,6 @@
 package Student_Bus.Student_Busm.controller;
 
-import Student_Bus.Student_Busm.entity.Account;
-import Student_Bus.Student_Busm.entity.BusStatus;
-import Student_Bus.Student_Busm.entity.Driver;
-import Student_Bus.Student_Busm.entity.Bus;
+import Student_Bus.Student_Busm.entity.*;
 import Student_Bus.Student_Busm.service.Accountservice;
 import Student_Bus.Student_Busm.service.BusService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,6 +77,14 @@ public class BusController {
     public Bus updateBusStopage(@PathVariable String busName, @RequestParam String stopageName) {
         return busService.updateBusStopage(busName, stopageName);
     }
+
+    // Endpoint to get the direction of a specific bus
+    @GetMapping("/{name}/direction")
+    public Direction getBusDirection(@PathVariable String name) {
+        return busService.getBusDirection(name);
+    }
+
+
     @GetMapping("/{busName}/stopage")
     public ResponseEntity<String> getBusStopage(@PathVariable String busName) {
         try {
