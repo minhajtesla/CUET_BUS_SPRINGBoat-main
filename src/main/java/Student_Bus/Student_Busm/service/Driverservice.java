@@ -88,5 +88,8 @@ public class Driverservice {
     }
 
 
+    public List<Driver> getDriversWithBus() {
+        return driverRepository.findByBusIsNotNull();
+    }
 }
 

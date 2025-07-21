@@ -68,14 +68,14 @@ public class BusService {
         Bus bus = busRepository.findById(busName)
                 .orElseThrow(() -> new NoSuchElementException("Bus not found"));
 
-        // Assuming `busStopage` is the field for the BusStopage object in the Bus entity
         BusStopage stopage = bus.getBusStopage();
         if (stopage != null) {
-            return stopage.getStopageName(); // Get the stopageName from the BusStopage object
+            return stopage.getStopageName(); // return the actual stopage name
         } else {
-            throw new NoSuchElementException("Stopage not assigned to this bus");
+            return "Not Set"; // ✅ do not throw, just return fallback string
         }
     }
+
 
     public Bus updateBusStopage(String busName, String stopageName) {
         // Find the bus by name

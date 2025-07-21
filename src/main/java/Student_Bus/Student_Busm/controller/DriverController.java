@@ -63,6 +63,12 @@ public class DriverController {
         return driverService.getDriversWithoutBus();
     }
 
+    @GetMapping("/driver-with-bus")
+    public List<Driver> getDriverWithBus()
+    {
+        return driverService.getDriversWithBus();
+    }
+
 
     @PutMapping("/unassign")
     public ResponseEntity<String> removeAllDriversFromBuses() {

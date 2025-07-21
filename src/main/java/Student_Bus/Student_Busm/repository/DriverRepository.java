@@ -15,6 +15,7 @@ public interface DriverRepository extends JpaRepository<Driver, String> {
     List<Driver> findAll();
 
     List<Driver> findByBusIsNull();
+    List<Driver> findByBusIsNotNull();
 }
 
 

@@ -85,15 +85,25 @@ public class BusController {
     }
 
 
-    @GetMapping("/{busName}/stopage")
-    public ResponseEntity<String> getBusStopage(@PathVariable String busName) {
-        try {
-            String stopageName = busService.getStopageName(busName);
-            return ResponseEntity.ok(stopageName);
-        } catch (NoSuchElementException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Bus or stopage not found");
-        }
+//    @GetMapping("/{busName}/stopage")
+//    public ResponseEntity<String> getBusStopage(@PathVariable String busName) {
+//        try {
+//            String stopageName = busService.getStopageName(busName);
+//            return ResponseEntity.ok(stopageName);
+//        } catch (NoSuchElementException e) {
+//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Bus or stopage not found");
+//        }
+//    }
+@GetMapping("/{busName}/stopage")
+public ResponseEntity<String> getBusStopage(@PathVariable String busName) {
+    try {
+        String stopageName = busService.getStopageName(busName);
+        return ResponseEntity.ok(stopageName != null ? stopageName : "Not Set");
+    } catch (NoSuchElementException e) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Bus not found");
     }
+}
+
 
 
     // Endpoint to update bus direction

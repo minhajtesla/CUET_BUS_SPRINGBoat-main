@@ -25,6 +25,11 @@ public class BusStopage {
     @Column(nullable = false)
     private StopageStatus stopageStatus; // Status of the stopage (REACHED or NOT_REACHED)
 
+    @Column(nullable = false)
+    private int busReturnOrder; // Order of the bus stop in the route
+
+
+
 
 
 }
