@@ -75,6 +75,17 @@ public class BusService {
             return "Not Set"; // ✅ do not throw, just return fallback string
         }
     }
+    public String getStopageNamebybus(String busName) {
+        Bus bus = busRepository.findById(busName)
+                .orElseThrow(() -> new NoSuchElementException("Bus not found"));
+
+        BusStopage stopage = bus.getBusStopage();
+        if (stopage != null) {
+            return stopage.getStopageName(); // return the actual stopage name
+        } else {
+            return "Not Set"; // ✅ do not throw, just return fallback string
+        }
+    }
 
 
     public Bus updateBusStopage(String busName, String stopageName) {
